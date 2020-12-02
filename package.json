@@ -1,0 +1,16 @@
+{
+  "name": "design-pattern",
+  "version": "1.0.0",
+  "description": "Study case from book Packt Nodejs Design Patterns 3rd edition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "design",
+    "pattern"
+  ],
+  "author": "andy.he01@sap.com",
+  "license": "ISC"
+}
