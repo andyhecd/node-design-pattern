@@ -24,3 +24,14 @@ const require = createRequire(import.meta.url)
 const data = require('./data.json')
 console.log(data)
 ```
+
+## Path resolving algorithm
+The resolving algorithm can be divided into three major braches:
+1. **File modules**: If module name starts with *'/'* or *'./'*, it will be considered as absolute or relative file path;
+2. **Core modules**: Against point 1, module name will be considered as pointing to someone mudule, and first try to search within the core Node.js modules;
+3. **Package modules**: Against point 1 and 2, or no core module matched the name, then the search continues by looking for a matching module in the first *node_modules* directory that is found navigating up in the directly structure starting from the requiring module. And continues to search for a match by looking into the next *node_modules* directory up in the directory tree, unit it reaches the root of the filesystem.
+
+Additionally, for file and package modules, both files and directories can match the moduleName. In particular, the algorithm will try to match as following:
+1. <*moduleName*>.js
+2. <*moduleName*>/index.js
+3. The directory/file specified in the main property of <*moduleName*>/package.json

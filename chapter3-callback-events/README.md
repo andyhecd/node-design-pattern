@@ -1,3 +1,4 @@
+# Callback pattrn
 ## Guidelines of API/fucntion design
 - Don't create inconsistency and confusion around the nature of an API, which means defining API with clear nature: either asynchronous or asynchronous. Refer to a sample of [unpredicatable function](./chapter3-callback-events/unpredicatableFunction).
 - Purely synchronous CPS is specious and hard to use. So, always choose a direct style for purely synchronous functions. Which means, if possible, change an API from CPS to a directly style.
@@ -58,7 +59,7 @@ If uncaught exception raised, how is application going to do?
    1. Keep in mind, never try to continue current process, and it should exit always;
    2. Optionally, do some logging or cleanup task if necessary;
    3. Ideally, trigger another superivsor service to restart application.
-   
+
 Node.js will emit a special event called *uncaughtException* before exiting the process, that's the way application can use for optional or ideal processes. For example:
 ```javascript
 process.on('uncaughtException', (err) => {
@@ -68,3 +69,12 @@ process.on('uncaughtException', (err) => {
     process.exit(1)
 })
 ```
+
+# Observer pattern
+The **Observer Pattern** defines an object (called subject) that can notify a set of observers (or listeners) when a change in its state occurs. According to the definition of **Observer Pattern**, it works just like **Callback** doing. Callback propagate result to only one listener, not to a set of observers.
+## Implement observer pattern by simply using built-in EventEmitter
+```javascript
+import { EventEmitter } from 'events'
+const emitter = new EventEmitter()
+```
+Functions of EventEmitter support chaining, see example (Creating and Using the EventEmitter)[./eventEmitterExample] for details.
