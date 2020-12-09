@@ -52,15 +52,16 @@ function readJSON (filename, callback) {
 ```
 - **Uncaught exceptions**: Uncaught exceptions can happen that an error is thrown and not caught within the callback of an asynchronous function.
 Application should always exit once uncaught exception raised. And trying to wrap related asynchronous function with *try...catch* block will not working as expected, since the executions stack of *try...catch* block is different from the callback is invoked, which is the asynchronous function execution context. So uncaught exceptions will abort process and reach to event loop directly.
-
+   
 If uncaught exception raised, how is application going to do?
    
    1. Keep in mind, never try to continue current process, and it should exit always;
    2. Optionally, do some logging or cleanup task if necessary;
    3. Ideally, trigger another superivsor service to restart application.
-
+   
 Node.js will emit a special event called *uncaughtException* before exiting the process, that's the way application can use for optional or ideal processes. For example:
-```javascipt
+   
+```javascript
 process.on('uncaughtException', (err) => {
     console.error(`This will catch at last the JSON parsing exception:${err.message}`)
     // Terminates the application with 1 (error) as exit code.
