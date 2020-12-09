@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Study case from book Packt Nodejs Design Patterns 3rd edition",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
