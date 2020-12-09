@@ -25,7 +25,7 @@ const data = require('./data.json')
 console.log(data)
 ```
 
-## Path resolving algorithm
+## Module name resolving algorithm
 The resolving algorithm can be divided into three major braches:
 1. **File modules**: If module name starts with *'/'* or *'./'*, it will be considered as absolute or relative file path;
 2. **Core modules**: Against point 1, module name will be considered as pointing to someone mudule, and first try to search within the core Node.js modules;
