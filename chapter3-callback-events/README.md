@@ -123,3 +123,27 @@ class MyObject extends EventEmitter{
 }
 ```
 
+# EventEmitter versus callback
+
+As usage perspective, callback is a specical case of EventEmitter. Eventually, EventEmitter can cover all of cases supporting by callback, without considering semantic nature and code readability. Then, how to choose callback or EventEmitter in particular situation?
+
+Generally, callbacks should be used when a result must be returned in an asynchronous way; while EventEmitter should be used when there is a need to communicate that something has happened.
+
+- Callback is expected to be invoked exactly once, and it can notify only one particular handler, a.k.a. callback function.
+- EventEmitter should be used then the same event can occur multiple times, or may not occur at all. And EventEmitter allows use to register multiple events and accompanying listeners.
+
+## Advanced topic: combining callbacks and events
+
+Circumstance: an asynchronous operation processes particular situation, for example reading file content according to input filename; meanwhile, more fine-grained subtasks are required to process file content in details, such as, reporting senstive keywords, extracting person information and etc.
+
+See another example from Node.js built-in function **glob**:
+
+```javascript
+import glob from "glob";
+glob("data/*.txt", (err, files) => {
+  if (err) {
+    return console.error(err);
+  }
+  console.log(`All files found: ${JSON.stringify(files)}`);
+}).on("match", (match) => console.log(`Match found: ${match}`));
+```
