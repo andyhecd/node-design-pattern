@@ -7,4 +7,4 @@ In short, you will learn about:
 - Avoiding callback hell and other callback best practices.
 - Common asynchronous patterns such as sequential execution, sequential iteration, parallel execution, and limited parallel execution.
 
-**Note: Simply use (Async.js)[https://www.npmjs.com/package/async] to control asynchronous invocation flow.**
+**Note: Simply use [Async.js](https://www.npmjs.com/package/async) to control asynchronous invocation flow.**
