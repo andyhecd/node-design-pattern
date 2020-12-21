@@ -1,0 +1,16 @@
+{
+  "name": "chapter4-async-control-flow",
+  "version": "1.0.0",
+  "description": "Asynchronous Control Flow Patterns with Callbacks",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andy",
+  "license": "ISC",
+  "dependencies": {
+    "mkdirp": "^1.0.4",
+    "superagent": "^6.1.0"
+  }
+}

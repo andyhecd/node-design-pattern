@@ -33,6 +33,7 @@ mta_archives/
 # Local Env
 default-evn.json
 default-services.json
+.gen-andy-testing/
 
 # vs code
 .vscode/
